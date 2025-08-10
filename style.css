@@ -352,6 +352,58 @@ hr {
 .Instagram , .Facebook {
     width: 15%;
 }
+
+/* --- Menu burger mobile --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+.menu-toggle .bar {
+    width: 28px;
+    height: 4px;
+    background: #222;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* Responsive menu */
+@media screen and (max-width: 767px) {
+    .menu-toggle {
+        display: flex;
+    }
+    .nav-list,
+    .nav-buttons {
+        display: none;
+    }
+    .nav-list.active,
+    .nav-buttons.active {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        background: #FFF4E9;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 2rem 0 1rem 0;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        z-index: 1000;
+        align-items: center;
+    }
+    .navbar .container {
+        position: relative;
+    }
+}
+
 /* Cache les éléments par défaut */
 .podcast-card, .statistics-items {
     opacity: 0;

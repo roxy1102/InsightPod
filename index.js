@@ -15,4 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.podcast-card, .statistics-items').forEach(element => {
         observer.observe(element);
     });
+
+    // Menu mobile burger
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    const navButtons = document.querySelector('.nav-buttons');
+    if (menuToggle && navList && navButtons) {
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            navButtons.classList.toggle('active');
+        });
+    }
 });
