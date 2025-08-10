@@ -75,13 +75,13 @@ body {
 }
 
 .hero-title {
-    font-size: 3rem; /* Taille ajustée pour un meilleur affichage mobile */
+    font-size: clamp(2rem, 5vw, 4.5rem);
     font-weight: bold;
     line-height: 1.2;
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin: 1rem 0;
 }
 
@@ -179,7 +179,8 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     display: flex;
     align-items: center;
-    width: 290px; /* largeur fixe ou ajuste selon besoin */
+    width: 100%;
+    max-width: 290px;
     padding: 1.5rem;
     gap: 1rem;
     justify-content: center;
@@ -264,6 +265,9 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .Podcast-description{
     font-size: 2.2rem;
@@ -272,6 +276,7 @@ body {
     margin-left: 7rem;
     font-size: 2rem;
     font-weight: bold;
+    margin: 1rem 0;
 }
 .light {
     font-weight: normal;
@@ -279,18 +284,26 @@ body {
 }
 .podcats-image {
     margin-right: 6rem;
+    margin: 1rem 0;
+    max-width: 90%;
+    height: auto;
 }
 .podcast-statistics {
     display: flex;
     justify-content: space-between;
     padding: 0;
     margin: -2rem 8rem;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    gap: 2rem;
 }
 .podcast-statistics .Description-statistics {
     margin: -2rem 0;
 }
 .Description-statistics-2 {
     padding: 3rem;
+    text-align: center;
 }
 .number {
     font-size: 3.5rem;
@@ -319,7 +332,8 @@ body {
     gap: 8rem;
     list-style: none;
     padding: 2rem;
-    
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 .footer-links a {
     text-decoration: none;
@@ -334,6 +348,8 @@ hr {
     display: flex;
     gap: 2rem;
     padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .twitter, .Instagram, .Facebook {
     height: 10%;
@@ -341,7 +357,7 @@ hr {
     color: black;
     border: 1px solid black;
     border-radius: 20px;
-    padding: 0px 25px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     font-size: 0.7rem;
     display: inline-flex;
@@ -415,4 +431,101 @@ hr {
 .podcast-card.visible, .statistics-items.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ======= AJOUTS RESPONSIVE ======= */
+
+/* Taille du texte fluide */
+h1, h2, h3, p {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+.hero-title {
+    font-size: clamp(2rem, 5vw, 4.5rem);
+}
+.hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+/* Éviter largeur fixe sur podcast-cards */
+.podcast-card {
+    width: 100%;
+    max-width: 290px;
+}
+
+/* Section chiffres / image */
+.podcats-chiffre {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.Podcast-description {
+    margin: 1rem 0;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+.podcats-image {
+    margin: 1rem 0;
+    max-width: 90%;
+    height: auto;
+}
+
+/* Statistiques podcast */
+.podcast-statistics {
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    gap: 2rem;
+}
+.statistics-items {
+    text-align: center;
+}
+.Description-statistics-2 {
+    text-align: center;
+}
+
+/* Footer links mobile */
+.footer-links {
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-links img {
+    order: -1;
+}
+
+/* Réseaux sociaux mobile */
+.Social-media {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.twitter, .Instagram, .Facebook {
+    width: auto;
+    padding: 0.5rem 1rem;
+}
+
+/* === Tablette : ajustement intermédiaire === */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .hero-section {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    .podcats-chiffre {
+        flex-direction: row;
+        text-align: left;
+    }
+    .podcast-statistics {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* === Mobile : max 767px === */
+@media screen and (max-width: 767px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .Top-Podcasters-title {
+        font-size: 1.8rem;
+    }
 }
